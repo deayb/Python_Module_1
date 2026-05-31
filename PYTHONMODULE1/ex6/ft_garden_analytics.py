@@ -150,8 +150,7 @@ if __name__ == "__main__":
     print("=== Check year-old")
     print(f"Is 30 days more than a year? -> {Plant.is_older_than_a_year(30)}")
     print(f"Is 400 days more than a year?"
-          f" -> {Plant.is_older_than_a_year(400)}")
-    print()
+          f" -> {Plant.is_older_than_a_year(400)}\n")
     print("=== Flower")
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
