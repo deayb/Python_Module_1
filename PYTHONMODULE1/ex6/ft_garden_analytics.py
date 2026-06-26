@@ -33,6 +33,26 @@ class Plant:
         self._stats._show_count += 1
 
     def grow(self) -> None:
+
+    print("=== Tree")
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    print("[statistics for Oak]")
+    display_stats(oak)
+    print("[asking the oak to produce shade]")
+    oak.produce_shade()
+    print("[statistics for Oak]")
+    display_stats(oak)
+
+    print("=== Tree")
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    print("[statistics for Oak]")
+    display_stats(oak)
+    print("[asking the oak to produce shade]")
+    oak.produce_shade()
+    print("[statistics for Oak]")
+    display_stats(oak)
         self._height += self._growth_rate
         self._stats._grow_count += 1
 
@@ -42,6 +62,16 @@ class Plant:
 
     def set_height(self, value: float) -> None:
         if value < 0:
+
+    print("=== Tree")
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    print("[statistics for Oak]")
+    display_stats(oak)
+    print("[asking the oak to produce shade]")
+    oak.produce_shade()
+    print("[statistics for Oak]")
+    display_stats(oak)
             print(f"{self._name}: Error, height can't be negative")
         else:
             self._height = value
@@ -96,7 +126,17 @@ class Tree(Plant):
 
     def show(self) -> None:
         super().show()
-        print(f" Trunk diameter: {self._diameter}cm")
+        print(f" Trunk diame
+
+    print("=== Tree")
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    print("[statistics for Oak]")
+    display_stats(oak)
+    print("[asking the oak to produce shade]")
+    oak.produce_shade()
+    print("[statistics for Oak]")
+    display_stats(oak)ter: {self._diameter}cm")
 
     def produce_shade(self) -> None:
         print(f"Tree {self._name} now produces a shade of"
@@ -105,6 +145,9 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
+        def display(self) -> None:
+            super().display()
+            print(f" {self._shade_count} shade
     def __init__(self, name: str, height: float,
                  days: int, harvest_season: str) -> None:
         super().__init__(name=name, height=height, days=days)
@@ -140,6 +183,16 @@ class Seed(Flower):
         print(f" Seeds: {self._seeds}")
 
 
+
+    print("=== Tree")
+    oak = Tree("Oak", 200.0, 365, 5.0)
+    oak.show()
+    print("[statistics for Oak]")
+    display_stats(oak)
+    print("[asking the oak to produce shade]")
+    oak.produce_shade()
+    print("[statistics for Oak]")
+    display_stats(oak)
 def display_stats(plant: Plant) -> None:
     plant._stats.display()
 
