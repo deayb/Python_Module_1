@@ -1,19 +1,19 @@
 #! /usr/bin/env python3
 
 class Plant:
-    def __init__(self):
+    def __init__(self) -> None:
         self.name = ""
-        self.height = 0
+        self.height = 0.0
         self.days = 0
-        self.growth_rate = 1
+        self.growth_rate = 1.0
 
-    def show(self):
+    def show(self) -> None:
         print(f"{self.name}: {round(self.height, 1)}cm, {self.days} days old")
 
-    def grow(self):
+    def grow(self) -> None:
         self.height += self.growth_rate
 
-    def age(self):
+    def age(self) -> None:
         self.days += 1
 
 

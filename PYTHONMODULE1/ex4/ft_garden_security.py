@@ -1,38 +1,38 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 class Plant:
-    def __init__(self, name, height, days):
+    def __init__(self, name, height, days) -> None:
         self._name = name
         self._height = height
         self._days = days
         self._growth_rate = 1
 
-    def show(self):
+    def show(self) -> str:
         return (f"{self._name}:"
-                f" {round(self._height, 1)}cm, {self._days} days old")
+                f"{round(self._height, 1)}cm, {self._days} days old")
 
-    def grow(self):
+    def grow(self) -> None:
         self._height += self._growth_rate
 
-    def age(self):
+    def age(self) -> None:
         self._days += 1
 
-    def set_height(self, value):
+    def set_height(self, value) -> None:
         if value < 0:
             print(f"{self._name}: Error, height can't be negative")
         else:
             self._height = value
 
-    def set_age(self, value):
+    def set_age(self, value) -> None:
         if value < 0:
             print(f"{self._name}: Error, age can't be negative")
         else:
             self._days = value
 
-    def get_height(self):
+    def get_height(self) -> float:
         return self._height
 
-    def get_age(self):
+    def get_age(self) -> int:
         return self._days
 
 
@@ -42,8 +42,8 @@ def main() -> None:
     print("=== Garden Security System ===")
     print(f"Plant created: {rose.show()}")
     print()
-    rose.set_height(25)
-    print("Height updated: 25cm")
+    rose.set_height(25.0)
+    print("Height updated: 25 cm")
     rose.set_age(30)
     print("Age updated: 30 days\n")
     rose.set_height(-5)

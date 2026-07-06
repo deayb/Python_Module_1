@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 class Plant:
     @staticmethod
@@ -24,7 +24,7 @@ class Plant:
         self._name = name
         self._height = height
         self._days = days
-        self._growth_rate = 2.1
+        self._growth_rate = 8
         self._stats = Plant.Stats()
 
     def show(self) -> None:
@@ -33,45 +33,15 @@ class Plant:
         self._stats._show_count += 1
 
     def grow(self) -> None:
-
-    print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
-    oak.show()
-    print("[statistics for Oak]")
-    display_stats(oak)
-    print("[asking the oak to produce shade]")
-    oak.produce_shade()
-    print("[statistics for Oak]")
-    display_stats(oak)
-
-    print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
-    oak.show()
-    print("[statistics for Oak]")
-    display_stats(oak)
-    print("[asking the oak to produce shade]")
-    oak.produce_shade()
-    print("[statistics for Oak]")
-    display_stats(oak)
         self._height += self._growth_rate
         self._stats._grow_count += 1
 
-    def age(self) -> None:
-        self._days += 1
+    def age(self, days: int = 1) -> None:
+        self._days += days
         self._stats._age_count += 1
 
     def set_height(self, value: float) -> None:
         if value < 0:
-
-    print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
-    oak.show()
-    print("[statistics for Oak]")
-    display_stats(oak)
-    print("[asking the oak to produce shade]")
-    oak.produce_shade()
-    print("[statistics for Oak]")
-    display_stats(oak)
             print(f"{self._name}: Error, height can't be negative")
         else:
             self._height = value
@@ -126,17 +96,7 @@ class Tree(Plant):
 
     def show(self) -> None:
         super().show()
-        print(f" Trunk diame
-
-    print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
-    oak.show()
-    print("[statistics for Oak]")
-    display_stats(oak)
-    print("[asking the oak to produce shade]")
-    oak.produce_shade()
-    print("[statistics for Oak]")
-    display_stats(oak)ter: {self._diameter}cm")
+        print(f" Trunk diameter: {self._diameter}cm")
 
     def produce_shade(self) -> None:
         print(f"Tree {self._name} now produces a shade of"
@@ -145,9 +105,6 @@ class Tree(Plant):
 
 
 class Vegetable(Plant):
-        def display(self) -> None:
-            super().display()
-            print(f" {self._shade_count} shade
     def __init__(self, name: str, height: float,
                  days: int, harvest_season: str) -> None:
         super().__init__(name=name, height=height, days=days)
@@ -163,8 +120,8 @@ class Vegetable(Plant):
         super().grow()
         self._nutritional_value += 1
 
-    def age(self) -> None:
-        super().age()
+    def age(self, days: int = 1) -> None:
+        super().age(days)
         self._nutritional_value += 1
 
 
@@ -183,16 +140,6 @@ class Seed(Flower):
         print(f" Seeds: {self._seeds}")
 
 
-
-    print("=== Tree")
-    oak = Tree("Oak", 200.0, 365, 5.0)
-    oak.show()
-    print("[statistics for Oak]")
-    display_stats(oak)
-    print("[asking the oak to produce shade]")
-    oak.produce_shade()
-    print("[statistics for Oak]")
-    display_stats(oak)
 def display_stats(plant: Plant) -> None:
     plant._stats.display()
 
@@ -204,6 +151,7 @@ if __name__ == "__main__":
     print(f"Is 30 days more than a year? -> {Plant.is_older_than_a_year(30)}")
     print(f"Is 400 days more than a year?"
           f" -> {Plant.is_older_than_a_year(400)}\n")
+
     print("=== Flower")
     rose = Flower("Rose", 15.0, 10, "red")
     rose.show()
@@ -231,10 +179,11 @@ if __name__ == "__main__":
 
     print("=== Seed")
     sunflower = Seed("Sunflower", 80.0, 45, "yellow")
+    sunflower._growth_rate = 30
     sunflower.show()
     print("[make sunflower grow, age and bloom]")
     sunflower.grow()
-    sunflower.age()
+    sunflower.age(20)
     sunflower.bloom()
     sunflower.show()
     print("[statistics for Sunflower]")

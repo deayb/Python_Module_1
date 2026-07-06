@@ -1,14 +1,15 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
-def main():
+def main() -> None:
     name = "Rose"
-    height = 56
-    age = 5
-    print("=== Welcome to my garden ===")
-    print(f"Plant name: {name}")
+    height = 25
+    age = 30
+    print("=== Welcome to My Garden ===")
+    print(f"Plant: {name}")
     print(f"Height: {height} cm")
-    print(f"Age: {age} years")
-    print("=== End of program ===")
+    print(f"Age: {age} days")
+    print()
+    print("=== End of Program ===")
 
 
 if __name__ == "__main__":

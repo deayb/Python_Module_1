@@ -1,12 +1,12 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 class Plant:
-    def __init__(self):
+    def __init__(self) -> None:
         self.name = ""
         self.height = 0
         self.age = 0
 
-    def show(self):
+    def show(self) -> None:
         print(f"{self.name}: {self.height}cm, {self.age} days old")
 
 

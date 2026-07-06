@@ -1,7 +1,7 @@
 #! /usr/bin/env python3
 
 import math
-import sys
+
 
 def get_player_pos() -> tuple[float, float, float]:
     while True:
@@ -18,6 +18,7 @@ def get_player_pos() -> tuple[float, float, float]:
         except ValueError as e:
             print(f"Error on parameter '{part.strip()}': {e}")
 
+
 def main():
     print("=== Game Coordinate System ===")
     print("Get a first set of coordinates")
@@ -28,8 +29,10 @@ def main():
     print(f"Distance to center: {dist1}")
     print("Get a second set of coordinates")
     pos2 = get_player_pos()
-    dist2 = round(math.sqrt((pos2[0]-pos1[0])**2 + (pos2[1]-pos1[1])**2 + (pos2[2]-pos1[2])**2), 4)
+    dist2 = round(math.sqrt((pos2[0]-pos1[0])**2 +
+                            (pos2[1]-pos1[1])**2 + (pos2[2]-pos1[2])**2), 4)
     print(f"Distance between the 2 sets of coordinates: {dist2}")
+
 
 if __name__ == '__main__':
     main()
