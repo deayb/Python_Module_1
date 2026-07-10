@@ -3,7 +3,8 @@
 def input_temperature(temp_str: str) -> int:
     return int(temp_str)
 
-def test_temperature -> None():
+
+def test_temperature() -> None:
     print("=== Garden Temperature ===\n")
     temp_str = "25"
     print(f"Input data is '{temp_str}'")
@@ -19,4 +20,5 @@ def test_temperature -> None():
     print("All tests completed - program didn't crash!")
 
 
-test_temperature()
+if __name__ == "__main__":
+    test_temperature()

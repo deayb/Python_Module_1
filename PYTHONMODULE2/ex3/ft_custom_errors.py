@@ -1,17 +1,17 @@
 #! /usr/bin/env python3
 
 class GardenError(Exception):
-    def __init__(self, message="Unknowm garden error"):
+    def __init__(self, message: str = "Unknown garden error") -> None:
         super().__init__(message)
 
 
 class PlantError(GardenError):
-    def __init__(self, message="Unknown plant error"):
+    def __init__(self, message: str = "Unknown plant error") -> None:
         super().__init__(message)
 
 
 class WaterError(GardenError):
-    def __init__(self, message="Unknowm water error"):
+    def __init__(self, message: str = "Unknown water error") -> None:
         super().__init__(message)
 
 
@@ -23,7 +23,7 @@ def raise_water_error() -> None:
     raise WaterError("Not enough water in the tank!")
 
 
-def test_error_types -> None():
+def test_error_types() -> None:
     print("=== Custom Garden Errors Demo ===\n")
     print("Testing PlantError...")
     try:

@@ -1,16 +1,16 @@
 #! /usr/bin/env python3
 
-def input_temperature(temp_str):
+def input_temperature(temp_str: str) -> int:
     temperature = int(temp_str)
     if 0 <= temperature <= 40:
         return temperature
     if temperature < 0:
         raise ValueError(f"{temperature}°C is too cold for plants (min 0°C)")
-    elif temperature > 40:
+    else:
         raise ValueError(f"{temperature}°C is too hot for plants (max 40°C)")
 
 
-def test_temperature():
+def test_temperature() -> None:
     print("=== Garden Temperature ===\n")
     temp_str = "25"
     print(f"Input data is '{temp_str}'")
@@ -38,4 +38,5 @@ def test_temperature():
     print("All tests completed - program didn't crash!")
 
 
-test_temperature()
+if __name__ == "__main__":
+    test_temperature()

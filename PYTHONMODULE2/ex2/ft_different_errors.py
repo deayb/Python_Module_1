@@ -1,6 +1,6 @@
 #! /usr/bin/env python3
 
-def garden_operations(operation_number):
+def garden_operations(operation_number: int) -> None:
     if operation_number == 0:
         int("abc")
     elif operation_number == 1:
@@ -8,12 +8,12 @@ def garden_operations(operation_number):
     elif operation_number == 2:
         open("/non/existant/file")
     elif operation_number == 3:
-        "hello" + 123
+        "hello" + 123  # type: ignore[operator]
     else:
         return
 
 
-def test_error_types():
+def test_error_types() -> None:
     print("=== Garden Error Types Demo ===")
     operation_number = 0
     print("Testing operation 0...")
@@ -49,4 +49,5 @@ def test_error_types():
     print("All error types tested successfully!")
 
 
-test_error_types()
+if __name__ == "__main__":
+    test_error_types()
