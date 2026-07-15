@@ -19,7 +19,7 @@ def get_player_pos() -> tuple[float, float, float]:
             print(f"Error on parameter '{part.strip()}': {e}")
 
 
-def main():
+def main() -> None:
     print("=== Game Coordinate System ===")
     print("Get a first set of coordinates")
     pos1 = get_player_pos()

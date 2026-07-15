@@ -3,7 +3,7 @@
 import sys
 
 
-def main():
+def main() -> None:
     print('=== Command Quest ===')
     print(f'Program name: {sys.argv[0]}')
     lenn = len(sys.argv)
