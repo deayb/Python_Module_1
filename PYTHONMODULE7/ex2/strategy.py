@@ -1,16 +1,17 @@
 from abc import ABC, abstractmethod
 from ex1.capability import HealCapability, TransformCapability
-
+from ex0.creature import Creature
+from typing import cast
 
 class BattleStrategy(ABC):
     @abstractmethod
     def is_valid(self, creature: object) -> bool:
         ...
-    
+
     @abstractmethod
     def act(self, creature: object) -> None:
         ...
-    
+
 
 class InvalidStrategyError(Exception):
     pass
@@ -22,8 +23,11 @@ class NormalStrategy(BattleStrategy):
 
     def act(self, creature: object) -> None:
         if not self.is_valid(creature):
-            raise InvalidStrategyError("Invalid creature for this normal strategy")
-        print(creature.attack())
+            raise InvalidStrategyError(
+                "Invalid creature for this normal strategy"
+            )
+        attacker = cast (Creature, creature)
+        print(attacker.attack())
 
 
 class AggressiveStrategy(BattleStrategy):
@@ -33,10 +37,14 @@ class AggressiveStrategy(BattleStrategy):
     def act(self, creature: object) -> None:
         if not self.is_valid(creature):
             name = getattr(creature, "name", "unknown")
-            raise InvalidStrategyError(f"Invalid Creature '{name}' for this aggressive strategy")
-        print(creature.transform())
-        print(creature.attack())
-        print(creature.revert())
+            raise InvalidStrategyError(
+                f"Invalid Creature '{name}' for this aggressive strategy"
+           )
+        transformer = cast (TransformCapability, creature)
+        attacker = cast (Creature, creature)
+        print(transformer.transform())
+        print(attacker.attack())
+        print(transformer.revert())
 
 
 class DefensiveStrategy(BattleStrategy):
@@ -47,5 +55,7 @@ class DefensiveStrategy(BattleStrategy):
         if not self.is_valid(creature):
             name = getattr(creature, "name", "unknown")
             raise InvalidStrategyError(f"Invalid Creature '{name}' for this defensive strategy")
-        print(creature.attack())
-        print(creature.heal())
+        attacker = cast(Creature, creature)
+        healer = cast(HealCapability, creature)
+        print(attacker.attack())
+        print(healer.heal())

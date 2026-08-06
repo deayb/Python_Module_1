@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from abc import ABC, abstractmethod
 from ex0 import CreatureFactory, FlameFactory, AquaFactory
+
 
 def test_factory(factory: CreatureFactory) -> None:
     print("Testing factory")
@@ -13,6 +13,7 @@ def test_factory(factory: CreatureFactory) -> None:
     print(evolved.describe())
     print(evolved.attack())
 
+
 def battle(factory1: CreatureFactory, factory2: CreatureFactory) -> None:
     print("Testing battle")
     challenger1 = factory1.create_base()
@@ -23,6 +24,7 @@ def battle(factory1: CreatureFactory, factory2: CreatureFactory) -> None:
     print(" fight!")
     print(challenger1.attack())
     print(challenger2.attack())
+
 
 if __name__ == "__main__":
     fire_factory = FlameFactory()

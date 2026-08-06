@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from typing import Any, Protocol
 import typing
 
+
 class DataProcessor(ABC):
     name: str
 
@@ -153,16 +154,15 @@ class DataStream:
                   f"processed, remaining {proc.remaining} on processor")
 
 
-def output_pipeline(self, nb: int, plugin: ExportPlugin) -> None:
-    for proc in self._processors:
-        batch: list[tuple[int, str]] = []
-        for _ in range(nb):
-            if proc.remaining == 0:
-                break
-            batch.append(proc.output())
-        if batch:
-            plugin.process_output(batch)
-
+    def output_pipeline(self, nb: int, plugin: ExportPlugin) -> None:
+        for proc in self._processors:
+            batch: list[tuple[int, str]] = []
+            for _ in range(nb):
+                if proc.remaining == 0:
+                    break
+                batch.append(proc.output())
+            if batch:
+                plugin.process_output(batch)
 
 
 def main() -> None:

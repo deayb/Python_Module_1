@@ -34,6 +34,7 @@ def battle(opponents: list[tuple[CreatureFactory, BattleStrategy]]) -> None:
                 print(f"Battle error, aborting tournament: {e}")
                 return
 
+
 if __name__ == "__main__":
     print("Tournament 0 (basic)")
     print("[ (Flameling+Normal), (Healing+Defensive) ]")

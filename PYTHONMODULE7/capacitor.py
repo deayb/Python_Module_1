@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
+from typing import cast
 
 def test_healing(factory: HealingCreatureFactory) -> None:
     print("Testing Creature with healing capability")
@@ -14,6 +15,7 @@ def test_healing(factory: HealingCreatureFactory) -> None:
     print(evolved.describe())
     print(evolved.attack())
     print(evolved.heal())
+
 
 def test_transform(factory: TransformCreatureFactory) -> None:
     print("Testing Creature with transform capability")
@@ -31,6 +33,7 @@ def test_transform(factory: TransformCreatureFactory) -> None:
     print(evolved_t.transform())
     print(evolved_t.attack())
     print(evolved_t.revert())
+
 
 if __name__ == "__main__":
     heal_factory = HealingCreatureFactory()
