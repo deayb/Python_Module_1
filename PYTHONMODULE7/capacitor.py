@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from ex1 import HealingCreatureFactory, TransformCreatureFactory
-from typing import cast
+
 
 def test_healing(factory: HealingCreatureFactory) -> None:
     print("Testing Creature with healing capability")
