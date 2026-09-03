@@ -25,11 +25,12 @@ def main() -> None:
         print("\nMATRIX STATUS: You're still plugged in")
         print()
         print(f"Current Python: {pp}")
+        print(f"Package installation path: \n{site.getsitepackages()[0]}")
         print("Virtual Environment: None detected"
               "\n\nWARNING: You're in the global environment!"
               "\nThe machines can see everything you install."
               "\n\nTo enter the construct, run:"
-              "\npython -m virtualenv matrix_env"
+              "\npython -m venv matrix_env"
               "\nsource matrix_env/bin/activate # On Unix\n"
               r"matrix_env\Scripts\activate  # On Windows"
               "\n\nThen run this program again.")
