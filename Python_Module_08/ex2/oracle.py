@@ -1,7 +1,7 @@
 import os
 import sys
 
-from dotenv import load_dotenv # type: ignore
+from dotenv import load_dotenv  # type: ignore
 
 
 def describe(value: str | None, present: str, missing: str) -> str:

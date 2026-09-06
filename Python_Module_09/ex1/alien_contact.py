@@ -51,8 +51,8 @@ def main() -> None:
     print("========================================")
 
     valid_contact = AlienContact(
-        contact_id="AC_4242_42",
-        timestamp="2026-09-03T22:15:00",
+        contact_id="_4242_42",
+        timestamp=datetime.now(),
         location="France",
         contact_type=ContactType.RADIO,
         signal_strength=8.5,
@@ -74,13 +74,13 @@ def main() -> None:
     print("Expected validation error:")
     try:
         AlienContact(
-            contact_id="AC_2024_002",
-            timestamp="2026-09-03T22:15:00",
+            contact_id="df_2024_002",
+            timestamp=datetime.now(),
             location="France",
             contact_type=ContactType.TELEPATHIC,
             signal_strength=6.0,
             duration_minutes=30,
-            witness_count=1,
+            witness_count=3,
         )
     except ValidationError as error:
         print(error.errors()[0]["msg"])

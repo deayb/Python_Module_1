@@ -19,12 +19,12 @@ def main() -> None:
     print("========================================")
 
     valid_station = SpaceStation(
-        station_id="APOLLO13",
-        name="Ma Station a Moi",
+        station_id="ISS001",
+        name="MInternational Space Station",
         crew_size=6,
         power_level=85.5,
-        oxygen_level=87.3,
-        last_maintenance="2026-09-03T15:21:00",
+        oxygen_level=92.3,
+        last_maintenance=datetime.now(),
         is_operational=True,
     )
 
@@ -48,7 +48,7 @@ def main() -> None:
             crew_size=25,
             power_level=50.0,
             oxygen_level=50.0,
-            last_maintenance="2024-01-15T10:30:00",
+            last_maintenance=datetime.now(),
         )
     except ValidationError as error:
         print(error.errors()[0]["msg"])

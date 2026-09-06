@@ -40,7 +40,9 @@ class SpaceMission(BaseModel):
             member.rank in (Rank.CAPTAIN, Rank.COMMANDER)
             for member in self.crew
         ):
-            raise ValueError("Must have at least one Commander or Captain")
+            raise ValueError(
+                "Mission must have at least one Commander or Captain"
+            )
 
         if self.duration_days > 365:
             experienced = sum(
@@ -66,7 +68,7 @@ def main() -> None:
         mission_id="M2024_MARS",
         mission_name="Mars Colony Establishment",
         destination="Mars",
-        launch_date="2026-09-03T18:52:00",
+        launch_date=datetime.now(),
         duration_days=900,
         crew=[
             CrewMember(
@@ -79,7 +81,7 @@ def main() -> None:
                 is_active=True,
             ),
             CrewMember(
-                member_id="CM002",
+                member_id="LT002",
                 name="John Smith",
                 rank=Rank.LIEUTENANT,
                 age=22,
@@ -87,6 +89,15 @@ def main() -> None:
                 years_experience=8,
                 is_active=True,
             ),
+            CrewMember(
+                member_id="OF003",
+                name="Alice Johnson",
+                rank=Rank.OFFICER,
+                age=36,
+                specialization="Engineering",
+                years_experience=12,
+                is_active=True,
+            )
         ],
         mission_status="planned",
         budget_millions=2500.0,
@@ -112,7 +123,7 @@ def main() -> None:
             mission_id="M2024_TEST",
             mission_name="Test Mission",
             destination="Mars",
-            launch_date="2026-09-03T18:52:00",
+            launch_date=datetime.now(),
             duration_days=100,
             crew=[
                 CrewMember(
@@ -129,7 +140,7 @@ def main() -> None:
             budget_millions=500.0,
         )
     except ValidationError as error:
-        print(error.errors()[0]["msg"])
+        print(error.errors()[0]["msg"].split(", ", 1)[1])
 
 
 if __name__ == "__main__":
